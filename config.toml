@@ -1,7 +1,7 @@
 theme = "vonge"
 
 # The URL the site will be built for
-base_url = "https://paberr.github.io/vonge-zola-theme/"
+base_url = "https://kinneko.github.io"
 
 title = "kinnekoの薄い本屋 Github別館"
 author = "kinneko"
