@@ -1,0 +1,57 @@
+<!-- begin footer -->
+<!-- 1. padding を指定してフッター全体の高さを抑えます -->
+<footer class="footer" style="padding: 30px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <!-- ▼▼▼ 横並びエリア ▼▼▼ -->
+        <div class="footer-flex-container" style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
+
+            <!-- 2. 余白を強制リセットするスタイル（このページ限定） -->
+            <style>
+                /* フッター内のリストやソーシャルブロックの余白を消す */
+                .footer-flex-container ul,
+                .footer-flex-container .social,
+                .footer-flex-container li {
+                    margin-bottom: 0 !important;
+                    margin-top: 0 !important;
+                    line-height: 1; /* 行間のズレも防ぐ */
+                }
+                /* メニューリンクの位置微調整 */
+                .footer_nav__link {
+                    display: inline-block;
+                    line-height: 1.5; /* 文字が詰まりすぎないように */
+                }
+            </style>
+
+            <!-- ソーシャルアイコン -->
+            <div class="footer-social-wrapper">
+                {% include "partials/social-link.html" %}
+            </div>
+
+            <!-- フッターメニュー -->
+            <!-- display: flex を追加してメニュー項目同士も横並びを保証 -->
+            <ul class="footer_nav list-reset" style="display: flex; gap: 20px;">
+              {% for item in config.extra.footer.menu %}
+              {% set url = item.url | replace(from='$BASE_URL', to=config.base_url) %}
+                <li class="footer_nav__item">
+                  <a href="{{ url }}" class="footer_nav__link">{{ item.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+
+        </div>
+        <!-- ▲▲▲ 横並びエリア終了 ▲▲▲ -->
+
+        {% if config.extra.footer.copyright %}
+        <div class="copyright" style="margin-top: 0;">{{ config.extra.footer.copyright }}</div>
+        {% else %}
+        <div class="copyright" style="margin-top: 0;">&copy; {{ now() | date(format="%Y") }} <a href="{{ config.base_url }}">{{ config.author }}</a></div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

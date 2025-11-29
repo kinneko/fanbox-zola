@@ -1,0 +1,64 @@
+theme = "vonge"
+
+# The URL the site will be built for
+base_url = "https://paberr.github.io/vonge-zola-theme/"
+
+title = "kinnekoの薄い本屋 Github別館"
+author = "kinneko"
+description = "FANBOXで連載しているブログを転記しています。"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+generate_feeds = true
+feed_filenames = [ "atom.xml",]
+minify_html = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+taxonomies = [
+    { name = "tags", feed = true},
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = false
+
+[extra]
+logo_image = "images/logo.png"
+social_media_share_image = "/images/01.jpg"
+disqus_identifier = ""
+google_analytics = ""
+twitter_handle = "kinneko"
+
+author_image = '/images/kinneko.png'
+
+navigation = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/posts", title = "Blog" },
+    { url = "$BASE_URL/tags", title = "Tags" },
+]
+social_icons = [
+    { url = "https://github.com/kinneko", icon = "GitHub" },
+    { url = "https://x.com/kinneko", icon = "Twitter" },
+]
+date_format = "%d %b %Y"
+language_direction = "auto"
+keywords = ["keyword1", "keyword2", "keyword3"]
+
+[extra.footer]
+menu = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/posts/", title = "Blog" },
+]
+copyright = "Copyright 2021,2022,2023,2024,2025,2026 kinneko@gmail.com"
+
+[[extra.content_blocks]]
+block = "blog-section"
+title = "Recent Posts"
+description_html = """
+"""
+link_url = "/posts"
+show_posts = true

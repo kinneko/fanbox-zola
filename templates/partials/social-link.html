@@ -1,0 +1,27 @@
+{% if config.extra.social_icons %}
+<div class="social">
+  <ul class="social__list list-reset">
+    {% for social_icon in config.extra.social_icons %}
+    <li class="social__item">
+      <a class="social__link" href="{{ social_icon.url | replace(from='$BASE_URL', to=config.base_url) }}" target="_blank" rel="noopener"
+        aria-label="{{ social_icon.icon }} icon">
+
+        <!-- ▼▼▼ ここから変更 ▼▼▼ -->
+        {% if social_icon.icon | lower == "twitter" %}
+          <!-- X (Twitter) Icon -->
+          <!-- サイズは footer 等に合わせて少し大きめ(18px)にしています。調整してください -->
+          <svg style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;position: relative; bottom: 1px; left: 1px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        {% else %}
+          <!-- その他のアイコン（元のコード） -->
+          <i class="ion ion-logo-{{ social_icon.icon | lower }}"></i>
+        {% endif %}
+        <!-- ▲▲▲ ここまで変更 ▲▲▲ -->
+
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
